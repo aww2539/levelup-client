@@ -6,6 +6,9 @@ import { createGame, getGameTypes } from './GameManager.js'
 export const GameForm = () => {
     const history = useHistory()
     const [gameTypes, setGameTypes] = useState([])
+    const { gameId } = useParams()
+
+    useEffect(() => {}, [gameId])
 
     /*
         Since the input fields are bound to the values of

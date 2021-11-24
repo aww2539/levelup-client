@@ -13,7 +13,7 @@ export const Profile = () => {
     return (
         <article className="profile">
             <header>
-                <h1>{profile?.gamer?.user?.username}'s Profile</h1>
+                <h1>{profile.gamer?.user.username}'s Profile</h1>
             </header>
             <section className="profile__info">
                 <header className="profile__header">
@@ -21,7 +21,7 @@ export const Profile = () => {
                 </header>
                 <div className="profile__name">
                 {/* TODO: show the user's first and last name */}
-                    Welcome: {profile?.gamer?.user?.first_name} {profile?.gamer?.user?.last_name}
+                    Welcome: {profile.gamer?.user.first_name} {profile?.gamer?.user?.last_name}
                 </div>
                 {/* TODO: show the user's username */}
                 <div className="profile__username">Username: {profile?.gamer?.user?.username}</div>
@@ -34,6 +34,11 @@ export const Profile = () => {
                 </header>
                 <div className="registrations">
                     {/* TODO: Map through the events the user is attending */}
+                    {
+                        profile.attending?.map(event => {
+                            return <h5>{event.game.title}</h5>
+                        })
+                    }
                 </div>
             </section>
             <section className="profile__registrations">
@@ -42,6 +47,11 @@ export const Profile = () => {
                 </header>
                 <div className="registrations">
                     {/* TODO: Map through the events the user is hosting */}
+                    {
+                        profile.hosting?.map(event => {
+                            return <h5>{event.game.title}</h5>
+                        })
+                    }
                 </div>
             </section>
         </article>
